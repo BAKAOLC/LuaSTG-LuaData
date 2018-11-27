@@ -90,13 +90,12 @@ function stage_menu:init()
         delay_item[1]='Delay '..getdelay(network.delay)
     stage_menu.update(jstg.menu_network) end}
     menu_items={host_ip_item,delay_item}
-    table.insert(menu_items,{'Connect Multi Player',function () jstg.CreateConnect(3) end})
-    table.insert(menu_items,{'Connect Single Player',function () jstg.CreateConnect(1) end})
-    table.insert(menu_items,{'Connect Coop Single Player',function () jstg.CreateConnect(2) end})
+    table.insert(menu_items,{'Connect Multi Player',function () jstg.CreateConnect(3) reset_pos()--重置菜单pos end})
+    table.insert(menu_items,{'Connect Single Player',function () jstg.CreateConnect(1) reset_pos()--重置菜单pos end})
+    table.insert(menu_items,{'Connect Coop Single Player',function () jstg.CreateConnect(2) reset_pos()--重置菜单pos end})
     table.insert(menu_items,{'exit',function()
         jstg.SinglePlayer()
         menu.FlyIn(menu_title,'left')
-        reset_pos()--重置菜单pos
         menu.FlyOut(menu_network,'right')
     end})
     menu_network=New(simple_menu,'Network',menu_items)
